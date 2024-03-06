@@ -18,11 +18,9 @@ while printPrime:
         else:
             num += 1
             divBy = 2
-    elif divBy < num:
+    else:
         if num % divBy == 0:
             num += 1
             divBy = 2
         else:
             divBy += 1
-    else:
-        print("Wtf")
