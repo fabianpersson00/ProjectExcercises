@@ -37,9 +37,7 @@ intervalPayment = loan * interestRate / intervalFloat
 print("Your payment comes to", intervalPayment, "$ per interval.")
 
 intervalsToComplete = loan / intervalPayment
-
 print("You'll be completing this mortage payment in", intervalsToComplete, intervalString)
 
 leftOfLoan = loan - (loan * interestRate * term)
-
 print("After the term you will still owe another", leftOfLoan, "$ to the bank")
