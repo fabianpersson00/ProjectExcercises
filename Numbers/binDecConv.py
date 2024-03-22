@@ -4,7 +4,6 @@
 Develop a converter to convert a decimal number to binary or a binary number to its decimal equivalent.
 '''
 import math
-import time
 "Divide the number into two new numbers. One for being above or euqal to 1, and one for being less than 1."
 
 binDec = str(input("Reply if you want to convert a bin to dec with 'bin', or with 'dec' if it's the other way around.: "))
@@ -27,9 +26,31 @@ largeSegment = math.floor(number)
 smallSegment = round((number - largeSegment), lenDecimals)
 
 baseOfTwo = []
+decimalNumber = 0.0
 
 if binConv:
-    pass    
+    largeSegmentList = [char for char in str(largeSegment)]
+    largeSegmentList.reverse()
+    smallSegmentList = [char for char in str(smallSegment)]
+
+    """Popping twice to the remove '0' and the ',' from the list."""
+    smallSegmentList.pop(0)
+    smallSegmentList.pop(0)
+    print(largeSegmentList, smallSegmentList)
+    exponent = 0
+    for x in largeSegmentList:
+        if x == '1':
+            decimalNumber += 2**exponent
+        exponent += 1
+    
+    exponent = 1
+    for x in smallSegmentList:
+        if x == '1':
+            decimalNumber += (1/2**exponent)
+        exponent += 1
+    
+    print(decimalNumber)
+    
 else:
     while largeSegment > 0:
         if largeSegment % 2 == 0:
@@ -41,7 +62,8 @@ else:
     baseOfTwo.reverse()
     baseOfTwoLargeString = "".join(map(str, baseOfTwo))
     baseOfTwo.clear()
-    
+
+    """Again, some weird rounding is happening with floats, lie .321, is being rounded to .3220000075."""
     while smallSegment > 0 and len(baseOfTwo) < (lenDecimals**2):
         smallSegment *= 2
         smallSegment = round(smallSegment, lenDecimals)
