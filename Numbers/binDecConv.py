@@ -63,7 +63,7 @@ else:
     baseOfTwoLargeString = "".join(map(str, baseOfTwo))
     baseOfTwo.clear()
 
-    """Again, some weird rounding is happening with floats, lie .321, is being rounded to .3220000075."""
+    """Again, some weird rounding is happening with floats, like .321, is being rounded to .3200000075."""
     while smallSegment > 0 and len(baseOfTwo) < (lenDecimals**2):
         smallSegment *= 2
         smallSegment = round(smallSegment, lenDecimals)
