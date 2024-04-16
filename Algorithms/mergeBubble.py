@@ -46,8 +46,21 @@ def MergeElements(leftList, rightList):
     return mergedList
 
 def BubbleSort(listOfElements):
-    pass
+    sorted = False
+    while sorted == False:
+        sorted = True
+        for index in range(len(listOfElements)-1):
+            if listOfElements[index] > listOfElements[index+1]:
+                temp = listOfElements[index+1]
+                listOfElements[index+1] = listOfElements[index]
+                listOfElements[index] = temp
+                sorted = False
+            
+    return listOfElements
 
-print(MergeSort(testList1))
-print(MergeSort(testList2))
-print(MergeSort(testList3))
+print("Merged sort test 1: ", MergeSort(testList1))
+print("Merged sort test 2: ", MergeSort(testList2))
+print("Merged sort test 3: ", MergeSort(testList3))
+print("Bubble sort test 1: ", BubbleSort(testList1))
+print("Bubble sort test 2: ", BubbleSort(testList2))
+print("Bubble sort test 3: ", BubbleSort(testList3))
